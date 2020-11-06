@@ -1,7 +1,22 @@
+let votesArray = [0, 0, 0, 0];
+
 exports.handler = async (event) => {
-  const subject = event.queryStringParameters.name || "World";
+  const vote = event.queryStringParameters.vote;
+  if (vote === "a") {
+    votesArray[0] = votesArray[0] + 1;
+  } else if (vote === "b") {
+    votesArray[1] = votesArray[1] + 1;
+  } else if (vote === "c") {
+    votesArray[2] = votesArray[2] + 1;
+  } else if (vote === "d") {
+    votesArray[3] = votesArray[3] + 1;
+  } else if (vote === "r") {
+    votesArray = [0, 0, 0, 0];
+  }
+  console.log(json.stringify(votesArray));
   return {
     statusCode: 200,
-    body: `Hello ${subject}!`,
+    header: { "Access-Control-Allow-Origin": "*" },
+    body: json.stringify(votesArray),
   };
 };
