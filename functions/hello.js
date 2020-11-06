@@ -16,7 +16,10 @@ exports.handler = async (event) => {
   console.log(JSON.stringify(votesArray));
   return {
     statusCode: 200,
-    header: { "Access-Control-Allow-Origin": "*" },
+    header: {
+      "Access-Control-Allow-Origin":
+        "https://elated-archimedes-be0f38.netlify.app",
+    },
     body: JSON.stringify(votesArray),
   };
 };
