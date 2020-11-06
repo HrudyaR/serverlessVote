@@ -16,7 +16,7 @@ exports.handler = async (event) => {
   console.log(JSON.stringify(votesArray));
   return {
     statusCode: 200,
-    header: {
+    headers: {
       "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify(votesArray),
